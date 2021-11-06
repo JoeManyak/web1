@@ -4,10 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "eslint .",
-    "format": "prettier --write .",
-    "stylelint": "stylelint \"**/*.css\"",
-    "prepare": "husky install"
+    "test": "npm run --prefix . prettier:check && npm run --prefix . eslint:check && npm run --prefix . stylelint:check",
+    "prepare": "husky install",
+    "eslint:fix": "eslint . --fix --ignore-path .gitignore",
+    "eslint:check": "eslint . --ignore-path .gitignore",
+    "prettier:fix": "prettier --write . --ignore-path .gitignore",
+    "prettier:check": "prettier --check . --ignore-path .gitignore",
+    "stylelint:fix": "stylelint \"**/*.css\" --fix --ignore-path .gitignore",
+    "stylelint:check": "stylelint \"**/*.css\" --ignore-path .gitignore"
   },
   "keywords": [],
   "author": "",
@@ -16,10 +20,10 @@
     "eslint": "^7.32.0",
     "eslint-config-metarhia": "^7.0.1",
     "eslint-plugin-import": "^2.24.2",
-    "husky": "^7.0.2",
+    "eslint-plugin-sonarjs": "^0.10.0",
+    "husky": "^7.0.4",
     "prettier": "2.4.1",
     "stylelint": "^13.13.1",
     "stylelint-config-standard": "^22.0.0"
-  },
-  "dependencies": {}
+  }
 }
