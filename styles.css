@@ -27,7 +27,6 @@ button {
 }
 
 .block {
-  overflow: hidden;
   border: solid var(--black) 0.5px;
   font-size: 20px;
 }
